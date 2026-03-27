@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prémisse géopolitique — Dossier 11·09</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ══ SPLIT HERO (non-interactive, text visible) ══ */
+.split-hero {
+  display: flex; min-height: 70vh;
+  position: relative;
+}
+.split-panel {
+  flex: 1; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(3rem,5vw,5rem) clamp(2rem,4vw,4rem);
+}
+.split-panel-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 8s ease-out;
+}
+.split-panel:hover .split-panel-bg { transform: scale(1.04); }
+.split-panel-overlay { position: absolute; inset: 0; }
+.panel-fire .split-panel-overlay {
+  background: linear-gradient(160deg, rgba(140,25,5,0.65), rgba(7,6,10,0.82));
+}
+.panel-blue .split-panel-overlay {
+  background: linear-gradient(160deg, rgba(20,40,90,0.65), rgba(7,6,10,0.82));
+}
+.split-panel-content {
+  position: relative; z-index: 2;
+  max-width: 520px; text-align: center;
+}
+.split-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.8; }
+.split-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;
+}
+.panel-fire .split-subtitle { color: var(--ember-bright); }
+.panel-blue .split-subtitle { color: #5888b0; }
+.split-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem,3.5vw,3.2rem);
+  font-weight: 400; color: var(--text); line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.split-desc {
+  font-size: 0.92rem; color: var(--text2); line-height: 1.8;
+}
+.split-divider {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px; z-index: 10;
+  background: linear-gradient(to bottom, transparent, var(--ember), var(--gold-light), var(--ember), transparent);
+  transform: translateX(-50%); pointer-events: none;
+}
+.split-divider-label {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%); z-index: 11;
+  background: var(--void); border: 1px solid var(--ember-border);
+  padding: 0.6rem 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ember-bright);
+  border-radius: 9999px; pointer-events: none;
+  box-shadow: 0 0 40px rgba(192,58,26,0.15);
+}
+@media(max-width:780px) {
+  .split-hero { flex-direction: column; }
+  .split-panel { min-height: 45vh; }
+  .split-divider { left:0; right:0; top:50%; width:100%; height:1px;
+    background: linear-gradient(to right, transparent, var(--ember), var(--gold-light), var(--ember), transparent);
+    transform: translateY(-50%); }
+}
+
+/* ══ FULL-WIDTH ARGUMENT SECTIONS ══ */
+.full-section {
+  position: relative; overflow: hidden;
+  padding: clamp(4rem,8vw,7rem) clamp(1.5rem,4vw,3rem);
+}
+.full-section-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+}
+.full-section-overlay { position: absolute; inset: 0; }
+.section-fire .full-section-bg {
+  filter: brightness(0.15) contrast(1.2) saturate(0.5);
+}
+.section-fire .full-section-overlay {
+  background: linear-gradient(180deg, rgba(7,6,10,0.3) 0%, rgba(140,25,5,0.12) 30%, rgba(7,6,10,0.95) 100%);
+}
+.section-blue .full-section-bg {
+  filter: brightness(0.15) contrast(1.2) saturate(0.4);
+}
+.section-blue .full-section-overlay {
+  background: linear-gradient(180deg, rgba(7,6,10,0.3) 0%, rgba(20,40,90,0.12) 30%, rgba(7,6,10,0.95) 100%);
+}
+.full-section-inner {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto;
+}
+.full-section-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border2);
+}
+.full-section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.2rem,4.5vw,3.8rem);
+  font-weight: 400; color: var(--text); line-height: 1.08;
+  margin-bottom: 0.5rem;
+}
+.full-section-title em {
+  font-style: italic;
+}
+.section-fire .full-section-title em { color: var(--ember-bright); }
+.section-blue .full-section-title em { color: #5888b0; }
+
+.gain-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.gain-item:last-child { border-bottom: none; }
+.gain-item h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.35rem; font-weight: 400;
+  color: var(--text); margin-bottom: 0.75rem; line-height: 1.25;
+}
+.gain-item p {
+  font-size: 0.95rem; color: var(--text2); line-height: 1.85;
+}
+.gain-item p strong { color: white; font-weight: 600; }
+.gain-item p em { color: var(--text); font-family: 'Instrument Serif', serif; }
+
+.verdict-box {
+  max-width: 960px; margin: 0 auto;
+  padding: 2.5rem 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  font-style: italic;
+  color: var(--text3);
+  line-height: 1.85; font-size: 0.95rem;
+  position: relative; z-index: 2;
+  margin-top: -2rem;
+}
+.verdict-box strong { color: var(--gold-light); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">Dossier <span>11 · 09 · 2001</span></a>
+    <nav>
+      <a href="premisse.html" class="active">Prémisse</a>
+      <a href="acier.html">Acier</a>
+      <a href="wtc7.html">WTC 7</a>
+      <a href="pilotes.html">Pilotes</a>
+      <a href="renseignement.html">Renseignement</a>
+      <a href="tours.html">Tours</a>
+      <a href="amiante.html">Amiante</a>
+      <a href="financement.html">Financement</a>
+      <a href="absences.html">Absences</a>
+      <a href="israeliens.html">Israéliens</a>
+      <a href="pentagon.html">Pentagone</a>
+      <a href="vol93.html">Vol 93</a>
+      <a href="ecole.html">École</a>
+      <a href="sources.html">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     SPLIT HERO — Texte visible directement
+     ══════════════════════════════════════════════ -->
+<div class="split-hero">
+  <div class="split-panel panel-fire">
+    <div class="split-panel-bg" style="background-image:url('https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1200&q=80')"></div>
+    <div class="split-panel-overlay"></div>
+    <div class="split-panel-content">
+      <div class="split-icon">🔥</div>
+      <div class="split-subtitle">Si l'on pose la prémisse d'un</div>
+      <div class="split-title">État malveillant</div>
+      <div class="split-desc">Un empire en déclin cherchant le contrôle des ressources, la surveillance domestique légalisée, un budget militaire doublé et une hégémonie redéfinie. Ce qu'un tel État aurait gagné.</div>
+    </div>
+  </div>
+
+  <div class="split-divider"></div>
+  <div class="split-divider-label">VS</div>
+
+  <div class="split-panel panel-blue">
+    <div class="split-panel-bg" style="background-image:url('https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=1200&q=80')"></div>
+    <div class="split-panel-overlay"></div>
+    <div class="split-panel-content">
+      <div class="split-icon">⚖️</div>
+      <div class="split-subtitle">Si l'on pose la prémisse d'une</div>
+      <div class="split-title">Démocratie brisée</div>
+      <div class="split-desc">Un État démocratique victime perdant ses libertés, son argent, sa réputation et sa cohésion — le prix que paient les démocraties libérales en temps de guerre.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — ÉTAT MALVEILLANT (image flamme en fond)
+     ══════════════════════════════════════════════ -->
+<div class="full-section section-fire">
+  <div class="full-section-bg" style="background-image:url('https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1400&q=80')"></div>
+  <div class="full-section-overlay"></div>
+  <div class="full-section-inner">
+    <div class="full-section-header">
+      <div class="section-label">Analyse géopolitique · Gouvernement américain</div>
+      <div class="full-section-title">Ce qu'un État autoritaire<br>y aurait <em>gagné</em></div>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>Contrôle de la population par la peur — le Patriot Act</h3>
+      <p>Signé le 26 octobre 2001, soit 45 jours après les attaques, le <strong>USA PATRIOT Act</strong> a radicalement élargi les pouvoirs de surveillance de l'État sur ses propres citoyens : écoutes sans mandat judiciaire préalable, accès aux dossiers médicaux et bancaires, surveillance d'Internet, détention sans inculpation. Edward Snowden révélera en 2013 l'ampleur réelle de ce dispositif — la NSA collectait massivement les métadonnées téléphoniques de l'ensemble de la population américaine. Pour un État voulant surveiller sa population, le 11 septembre a fourni le prétexte juridique parfait.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>Le contrôle des ressources pétrolières : Afghanistan &amp; Irak</h3>
+      <p>Les attaques ont fourni la justification pour deux guerres majeures. <strong>L'Afghanistan</strong> (oct. 2001) a permis l'installation de bases militaires américaines dans une région stratégique pour le pipeline TAPI (Turkménistan-Afghanistan-Pakistan-Inde). <strong>L'Irak</strong> (mars 2003), dont le lien avec Al-Qaïda était inexistant (confirmé par la Commission 9/11), possédait les <strong>2e réserves pétrolières mondiales</strong> (112 milliards de barils). Les contrats pétroliers post-invasion ont bénéficié massivement à des entreprises américaines. Dick Cheney, ancien PDG d'Halliburton, était vice-président. L'entreprise a décroché des contrats gouvernementaux dépassant <strong>39 milliards de dollars</strong>.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>L'hégémonie militaire et le complexe militaro-industriel</h3>
+      <p>Le budget de la Défense américaine est passé de <strong>300 milliards en 2001 à plus de 700 milliards en 2010</strong>. Les industries d'armement (Lockheed Martin, Raytheon, Boeing Defense, General Dynamics) ont enregistré des profits record sur deux décennies. Le concept de <strong>« guerre globale contre le terrorisme »</strong> (GWOT) a institutionnalisé un état d'urgence permanent permettant des dépenses militaires extraordinaires et une présence militaire mondiale sans précédent en temps de paix.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>La consolidation du pouvoir exécutif</h3>
+      <p>L'administration Bush a considérablement élargi les prérogatives de l'exécutif au détriment du Congrès et du judiciaire : <strong>pouvoirs de guerre sans déclaration formelle du Congrès</strong>, théorie du « commander-in-chief » permettant de contourner les lois sur la torture (memos Bybee/Yoo, 2002), création du Département de la Sécurité Intérieure (DHS), expansion des <strong>tribunaux militaires</strong> et de la prison de Guantánamo hors du cadre juridique ordinaire. Le projet PNAC (Project for a New American Century), signé en 1997 par Cheney, Rumsfeld, Wolfowitz et d'autres futurs responsables Bush, décrivait exactement ce programme — et notait qu'il nécessiterait <em>« un événement catalyseur, comme un nouveau Pearl Harbor »</em> pour être accepté par le public américain.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>Le contrôle de l'agenda médiatique et politique mondial</h3>
+      <p>Le concept de <strong>« Vous êtes avec nous ou contre nous »</strong> (Bush, 20 sept. 2001) a restructuré les alliances mondiales selon un axe binaire favorable aux intérêts américains. La rhétorique de la « guerre contre le terrorisme » a servi à délégitimer des mouvements d'opposition dans de nombreux pays — y compris des résistances légitimes — sous l'étiquette « terroriste ». L'agenda de l'OTAN a été redéfini pour inclure des opérations hors zone traditionnelle.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — DÉMOCRATIE BRISÉE (image statue en fond)
+     ══════════════════════════════════════════════ -->
+<div class="full-section section-blue">
+  <div class="full-section-bg" style="background-image:url('https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=1400&q=80')"></div>
+  <div class="full-section-overlay"></div>
+  <div class="full-section-inner">
+    <div class="full-section-header">
+      <div class="section-label" style="color:#5888b0">Analyse géopolitique · Conséquences démocratiques</div>
+      <div class="full-section-title">Ce qu'un État démocratique<br>y a <em>perdu</em></div>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>Les libertés civiles fondamentales</h3>
+      <p>L'ACLU (American Civil Liberties Union) a documenté l'érosion systématique des libertés constitutionnelles post-11/09 : <strong>4e amendement</strong> (protection contre les perquisitions abusives) vidé de sa substance par le PATRIOT Act ; <strong>habeas corpus</strong> suspendu pour les « combattants ennemis » ; montée du profilage racial et ethnique des communautés arabes et musulmanes. La confiance des citoyens envers leurs institutions a chuté durablement — de 75% en 2001 à moins de 20% en 2023 selon Gallup.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>Le coût humain et financier : des milliers de milliards</h3>
+      <p>Le <strong>Costs of War Project</strong> (Brown University) évalue le coût total des guerres post-11/09 à <strong>plus de 8 000 milliards de dollars</strong> (Afghanistan, Irak, Pakistan, Syrie, soins aux vétérans inclus). Le bilan humain : <strong>7 057 soldats américains tués</strong> en Afghanistan et en Irak, plus de 50 000 blessés graves, des centaines de milliers de vétérans souffrant de PTSD. Entre 480 000 et 500 000 civils irakiens et afghans morts en lien direct avec les conflits.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>La crédibilité internationale et le soft power américain</h3>
+      <p>Les révélations sur la torture à <strong>Abu Ghraib</strong> (2004), les <strong>« sites noirs »</strong> de la CIA en Europe, et la détention sans procès à <strong>Guantánamo</strong> ont durablement terni l'image des États-Unis dans le monde. Le rapport du Sénat sur la torture (Senate Intelligence Committee, 2014) a confirmé que les techniques d'interrogation étaient <strong>inefficaces</strong> et illégales. La confiance internationale envers les États-Unis a chuté de façon historique selon le Pew Research Center.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>La déstabilisation régionale et la création de nouveaux ennemis</h3>
+      <p>L'invasion de l'Irak, en déstabilisant un État qui contenait les mouvements jihadistes, a directement contribué à la naissance de <strong>Daesh / État islamique</strong> (ISIS) en 2013-2014. Des milliers de djihadistes formés et aguerris ont essaimé dans toute la région. L'Afghanistan est retombé sous contrôle taliban en août 2021, <strong>20 ans de présence militaire américaine n'ayant pas modifié structurellement la situation</strong> initiale. La menace terroriste globale a augmenté, non diminué, selon le Global Terrorism Index.</p>
+    </div>
+
+    <div class="gain-item fade-in">
+      <h3>La cohésion sociale intérieure</h3>
+      <p>La montée de l'<strong>islamophobie</strong> post-11/09 a profondément fragmenté la société américaine. Les crimes haineux contre les Américains musulmans ont augmenté de 1 600% dans la semaine suivant les attaques (FBI). La polarisation politique s'est intensifiée autour de la question sécuritaire. La culture de la peur permanente entretenue par le système d'alerte terroriste codifié (orange, rouge…) a durablement modifié le rapport des Américains à leur espace public et à leurs institutions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VERDICT ══ -->
+<div style="padding: 0 clamp(1.5rem,4vw,3rem) clamp(4rem,6vw,5rem);">
+  <div class="verdict-box fade-in">
+    <strong>Prémisse à soumettre au lecteur :</strong> Un État malveillant ayant tout orchestré aurait effectivement obtenu l'essentiel de ce qu'un empire en déclin cherche — contrôle des ressources, surveillance domestique légalisée, budget militaire doublé, hégémonie redéfinie. Un État démocratique victime aurait lui aussi exactement subi ce que des démocraties libérales perdent en situation de guerre : libertés, argent, réputation, cohésion. <strong>Les deux scénarios sont factuellement cohérents avec les conséquences observées.</strong> La prémisse ne prouve rien — elle pose la question : la distribution des gains et des pertes est-elle plus cohérente avec un accident ou avec un calcul ?
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<div class="page-content">
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="nav-label">← Retour</span>
+      <span class="nav-title">Page d'accueil</span>
+    </a>
+    <a href="acier.html" class="next">
+      <span class="nav-label">Argument suivant →</span>
+      <span class="nav-title">01 · Destruction des preuves</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>Dossier 11·09·2001 — Prémisse géopolitique</p>
+    <p>Sources vérifiables</p>
+    <p>Aucune position éditoriale · 2025</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop || document.body.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

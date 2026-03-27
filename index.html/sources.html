@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index des sources — Dossier 11·09</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.si-cats {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.si-cat-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.5em 1.2em;
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  border-radius: var(--radius-full);
+}
+.si-cat-btn:hover { color: var(--text); background: var(--surface3); }
+.si-cat-btn.active {
+  background: var(--ember); color: white;
+  border-color: var(--ember);
+}
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 0.75rem;
+}
+.si-item {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s var(--ease);
+}
+.si-item:hover {
+  background: var(--surface2);
+  border-color: var(--ember-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow), var(--shadow-glow);
+}
+.si-item-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text2); line-height: 1.4;
+}
+.si-item:hover .si-item-title { color: var(--text); }
+.si-item-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ember-bright);
+  font-weight: 500;
+}
+.si-item-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; color: var(--text-muted);
+  word-break: break-all;
+}
+.sources-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:780px) {
+  .si-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">Dossier <span>11 · 09 · 2001</span></a>
+    <nav>
+      <a href="premisse.html">Prémisse</a>
+      <a href="acier.html">Acier</a>
+      <a href="wtc7.html">WTC 7</a>
+      <a href="pilotes.html">Pilotes</a>
+      <a href="renseignement.html">Renseignement</a>
+      <a href="tours.html">Tours</a>
+      <a href="amiante.html">Amiante</a>
+      <a href="financement.html">Financement</a>
+      <a href="absences.html">Absences</a>
+      <a href="israeliens.html">Israéliens</a>
+      <a href="pentagon.html">Pentagone</a>
+      <a href="vol93.html">Vol 93</a>
+      <a href="ecole.html">École</a>
+      <a href="sources.html" class="active">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero" style="min-height:40vh">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="hero-eyebrow">Annexe · Documentation</div>
+    <h1>Index des sources<em>Liens vérifiés un par un</em></h1>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="sources-count" id="sourcesCount">50 sources référencées</div>
+
+  <div class="si-cats">
+    <button class="si-cat-btn active" onclick="filterSources('all')">Toutes</button>
+    <button class="si-cat-btn" onclick="filterSources('officiel')">Rapports officiels</button>
+    <button class="si-cat-btn" onclick="filterSources('alternatif')">Sources alternatives</button>
+    <button class="si-cat-btn" onclick="filterSources('presse')">Presse</button>
+    <button class="si-cat-btn" onclick="filterSources('academique')">Académique</button>
+    <button class="si-cat-btn" onclick="filterSources('factcheck')">Fact-check</button>
+  </div>
+
+  <div class="si-grid" id="si-grid">
+    <!-- RAPPORTS OFFICIELS -->
+    <a class="si-item" href="https://www.nist.gov/el/final-reports-nist-world-trade-center-disaster-investigation" target="_blank" data-cat="officiel"><span class="si-item-title">NIST — Index de tous les rapports WTC (tours 1&amp;2 et WTC 7)</span><span class="si-item-meta">Rapport officiel</span><span class="si-item-url">nist.gov</span></a>
+    <a class="si-item" href="https://www.nist.gov/publications/federal-building-and-fire-safety-investigation-world-trade-center-disaster-final-report" target="_blank" data-cat="officiel"><span class="si-item-title">NIST NCSTAR 1 — Rapport final effondrement tours WTC (2005)</span><span class="si-item-meta">Rapport officiel</span><span class="si-item-url">nist.gov/publications</span></a>
+    <a class="si-item" href="https://www.nist.gov/publications/final-report-collapse-world-trade-center-building-7-federal-building-and-fire-safety-0" target="_blank" data-cat="officiel"><span class="si-item-title">NIST NCSTAR 1A — Rapport final effondrement WTC 7 (2008)</span><span class="si-item-meta">Rapport officiel</span><span class="si-item-url">nist.gov/publications</span></a>
+    <a class="si-item" href="https://www.nist.gov/world-trade-center-investigation" target="_blank" data-cat="officiel"><span class="si-item-title">NIST — Page principale investigation WTC (FAQ, vidéos, données)</span><span class="si-item-meta">Rapport officiel</span><span class="si-item-url">nist.gov</span></a>
+    <a class="si-item" href="https://9-11commission.gov/report/" target="_blank" data-cat="officiel"><span class="si-item-title">Commission 9/11 — Rapport final officiel (PDF téléchargeable)</span><span class="si-item-meta">Rapport officiel</span><span class="si-item-url">9-11commission.gov</span></a>
+    <a class="si-item" href="https://www.archives.gov/research/9-11" target="_blank" data-cat="officiel"><span class="si-item-title">Archives nationales US — Dossiers complets de la Commission 9/11</span><span class="si-item-meta">Archives officielles</span><span class="si-item-url">archives.gov</span></a>
+    <a class="si-item" href="https://vault.fbi.gov/9-11-attacks-investigation-and-related-materials" target="_blank" data-cat="officiel"><span class="si-item-title">FBI Vault — Dossiers déclassifiés sur les attaques du 11/09</span><span class="si-item-meta">Documents officiels FOIA</span><span class="si-item-url">vault.fbi.gov</span></a>
+    <a class="si-item" href="https://vault.fbi.gov/9-11-attacks-investigation-and-related-materials/9-11-material-released-in-response-to-executive-order-14040" target="_blank" data-cat="officiel"><span class="si-item-title">FBI — Documents déclassifiés décret 14040 (liens saoudiens)</span><span class="si-item-meta">Documents officiels déclassifiés</span><span class="si-item-url">vault.fbi.gov</span></a>
+    <a class="si-item" href="https://www.cia.gov/readingroom/document/0001109885" target="_blank" data-cat="officiel"><span class="si-item-title">CIA — PDB 6 août 2001 : « Bin Laden Determined to Strike in US »</span><span class="si-item-meta">Document déclassifié</span><span class="si-item-url">cia.gov/readingroom</span></a>
+    <a class="si-item" href="https://www.cdc.gov/wtc/index.html" target="_blank" data-cat="officiel"><span class="si-item-title">CDC — World Trade Center Health Program</span><span class="si-item-meta">Programme officiel de santé</span><span class="si-item-url">cdc.gov/wtc</span></a>
+    <a class="si-item" href="https://www.congress.gov/bill/111th-congress/house-bill/847" target="_blank" data-cat="officiel"><span class="si-item-title">James Zadroga 9/11 Health and Compensation Act (2011)</span><span class="si-item-meta">Législation officielle</span><span class="si-item-url">congress.gov</span></a>
+    <a class="si-item" href="https://irp.fas.org/congress/2002_rpt/911rept.pdf" target="_blank" data-cat="officiel"><span class="si-item-title">Joint Inquiry du Congrès (2002) — inclut les 28 pages saoudiennes (PDF)</span><span class="si-item-meta">Rapport officiel · PDF</span><span class="si-item-url">irp.fas.org</span></a>
+    <a class="si-item" href="https://www.irmep.org/ila/forrel/framing/DEAreport.pdf" target="_blank" data-cat="officiel"><span class="si-item-title">DEA — Rapport FOIA sur les « étudiants israéliens » aux USA (2001)</span><span class="si-item-meta">Document officiel FOIA · PDF</span><span class="si-item-url">irmep.org</span></a>
+
+    <!-- SOURCES ALTERNATIVES -->
+    <a class="si-item" href="https://www.ae911truth.org" target="_blank" data-cat="alternatif"><span class="si-item-title">AE911Truth — Architects &amp; Engineers for 9/11 Truth</span><span class="si-item-meta">Organisation alternative · 3 000+ professionnels</span><span class="si-item-url">ae911truth.org</span></a>
+    <a class="si-item" href="https://www.ae911truth.org/evidence/evidence-overview" target="_blank" data-cat="alternatif"><span class="si-item-title">AE911Truth — Synthèse des preuves physiques (thermite, acier, chute libre)</span><span class="si-item-meta">Source alternative · preuves forensiques</span><span class="si-item-url">ae911truth.org/evidence</span></a>
+    <a class="si-item" href="https://ine.uaf.edu/wtc7" target="_blank" data-cat="alternatif"><span class="si-item-title">UAF — Étude Hulsey sur le WTC 7 (2020) + données téléchargeables</span><span class="si-item-meta">Étude universitaire alternative · Univ. Alaska Fairbanks</span><span class="si-item-url">ine.uaf.edu/wtc7</span></a>
+    <a class="si-item" href="https://pilotsfor911truth.org/" target="_blank" data-cat="alternatif"><span class="si-item-title">Pilots for 9/11 Truth — page principale</span><span class="si-item-meta">Organisation alternative · pilotes professionnels</span><span class="si-item-url">pilotsfor911truth.org</span></a>
+    <a class="si-item" href="https://pilotsfor911truth.org/techpaperAA77/" target="_blank" data-cat="alternatif"><span class="si-item-title">Pilots for 9/11 Truth — Analyse FDR vol AA77 / Pentagone</span><span class="si-item-meta">Analyse alternative · données boîtes noires</span><span class="si-item-url">pilotsfor911truth.org/techpaperAA77</span></a>
+    <a class="si-item" href="https://www.journalof911studies.com/" target="_blank" data-cat="alternatif"><span class="si-item-title">Journal of 9/11 Studies — articles peer-reviewed alternatifs (depuis 2006)</span><span class="si-item-meta">Publication alternative</span><span class="si-item-url">journalof911studies.com</span></a>
+    <a class="si-item" href="https://911research.wtc7.net" target="_blank" data-cat="alternatif"><span class="si-item-title">911Research — analyse alternative des effondrements (Jim Hoffman)</span><span class="si-item-meta">Site alternatif</span><span class="si-item-url">911research.wtc7.net</span></a>
+    <a class="si-item" href="https://www.sourcewatch.org/index.php/Destruction_of_evidence_at_Ground_Zero" target="_blank" data-cat="alternatif"><span class="si-item-title">SourceWatch — Destruction des preuves à Ground Zero (acier exporté)</span><span class="si-item-meta">Documentation alternative</span><span class="si-item-url">sourcewatch.org</span></a>
+    <a class="si-item" href="https://www.ratical.org/ratville/CAH/RebuildingAmericasDefenses.pdf" target="_blank" data-cat="alternatif"><span class="si-item-title">PNAC — Rebuilding America's Defenses (1997) · mention « new Pearl Harbor »</span><span class="si-item-meta">Think tank néoconservateur · PDF</span><span class="si-item-url">ratical.org</span></a>
+    <a class="si-item" href="https://web.archive.org/web/19990423170939/http://www.israeleconomy.org/strat1.htm" target="_blank" data-cat="alternatif"><span class="si-item-title">« A Clean Break » (1996) — document rédigé pour Netanyahou</span><span class="si-item-meta">Document politique archivé</span><span class="si-item-url">web.archive.org</span></a>
+
+    <!-- PRESSE -->
+    <a class="si-item" href="https://www.nytimes.com/packages/html/nyregion/20050812_WTC_GRAPHIC/" target="_blank" data-cat="presse"><span class="si-item-title">NY Times — FDNY Oral History : 503 entretiens de pompiers (FOIA, 2005)</span><span class="si-item-meta">Presse · documents FOIA</span><span class="si-item-url">nytimes.com</span></a>
+    <a class="si-item" href="https://forward.com/news/4928/spy-rumors-fly-on-gusts-of-truth/" target="_blank" data-cat="presse"><span class="si-item-title">Forward Magazine — Les 5 Israéliens · « Spy Rumors Fly on Gusts of Truth » (2002)</span><span class="si-item-meta">Presse · enquête</span><span class="si-item-url">forward.com</span></a>
+    <a class="si-item" href="https://www.salon.com/2007/05/07/dancing_israelis/" target="_blank" data-cat="presse"><span class="si-item-title">Salon — « The Israeli Art Student Mystery » (Ketcham, 2007)</span><span class="si-item-meta">Presse · enquête</span><span class="si-item-url">salon.com</span></a>
+    <a class="si-item" href="https://theintercept.com/2022/09/11/9-11-bush-interview-commission/" target="_blank" data-cat="presse"><span class="si-item-title">The Intercept — Interview déclassifiée Bush par la Commission 9/11 (2022)</span><span class="si-item-meta">Presse · document déclassifié</span><span class="si-item-url">theintercept.com</span></a>
+    <a class="si-item" href="https://www.cbsnews.com/news/ashcroft-flying-high/" target="_blank" data-cat="presse"><span class="si-item-title">CBS News — Ashcroft : restrictions de vol pré-11/09 (juillet 2001)</span><span class="si-item-meta">Presse</span><span class="si-item-url">cbsnews.com</span></a>
+    <a class="si-item" href="https://www.sfgate.com/news/article/Willie-Brown-got-low-key-warning-about-air-travel-2876742.php" target="_blank" data-cat="presse"><span class="si-item-title">SF Gate — Willie Brown averti de ne pas prendre l'avion (12 sept. 2001)</span><span class="si-item-meta">Presse</span><span class="si-item-url">sfgate.com</span></a>
+    <a class="si-item" href="https://www.youtube.com/watch?v=RkVBxAlFqiQ" target="_blank" data-cat="presse"><span class="si-item-title">Jon Stewart — témoignage au Sénat pour le Zadroga Act (2019)</span><span class="si-item-meta">Vidéo YouTube</span><span class="si-item-url">youtube.com</span></a>
+    <a class="si-item" href="https://transforming-classification.blogs.archives.gov/2022/11/09/declassified-9-11-commission-interviews-with-bush-and-cheney/" target="_blank" data-cat="presse"><span class="si-item-title">Archives nationales — Interviews déclassifiées Bush &amp; Cheney par la Commission 9/11</span><span class="si-item-meta">Blog Archives nationales US</span><span class="si-item-url">archives.gov</span></a>
+
+    <!-- ACADÉMIQUE -->
+    <a class="si-item" href="https://costsofwar.watson.brown.edu/" target="_blank" data-cat="academique"><span class="si-item-title">Costs of War Project (Brown University) — 8 000 milliards $ de guerres post-11/09</span><span class="si-item-meta">Recherche universitaire</span><span class="si-item-url">costsofwar.watson.brown.edu</span></a>
+    <a class="si-item" href="https://costsofwar.watson.brown.edu/findings" target="_blank" data-cat="academique"><span class="si-item-title">Costs of War — Synthèse des résultats (coûts humains, financiers, politiques)</span><span class="si-item-meta">Recherche universitaire</span><span class="si-item-url">costsofwar.watson.brown.edu/findings</span></a>
+    <a class="si-item" href="https://www.civil.northwestern.edu/people/bazant/PDFs/Papers/340.pdf" target="_blank" data-cat="academique"><span class="si-item-title">Bažant &amp; Zhou — Why Did the WTC Collapse? (ASCE, 2002, PDF)</span><span class="si-item-meta">Article académique · génie civil · PDF direct</span><span class="si-item-url">civil.northwestern.edu</span></a>
+    <a class="si-item" href="https://www.civil.northwestern.edu/people/bazant/PDFs/Papers/404.pdf" target="_blank" data-cat="academique"><span class="si-item-title">Bažant, Le &amp; Greening — Collapse of WTC Towers (ASCE, 2008, PDF)</span><span class="si-item-meta">Article académique · PDF direct</span><span class="si-item-url">civil.northwestern.edu</span></a>
+    <a class="si-item" href="https://ascelibrary.org/doi/10.1061/%28ASCE%29ST.1943-541X.0002537" target="_blank" data-cat="academique"><span class="si-item-title">Irfanoglu et al. — Réponse critique au rapport Hulsey (ASCE, 2020)</span><span class="si-item-meta">Article académique · génie structurel</span><span class="si-item-url">ascelibrary.org</span></a>
+    <a class="si-item" href="https://www.jstor.org/stable/10.1086/503645" target="_blank" data-cat="academique"><span class="si-item-title">Poteshman — Put options inhabituels avant le 11/09 (Journal of Business, 2006)</span><span class="si-item-meta">Article académique · finance</span><span class="si-item-url">jstor.org</span></a>
+    <a class="si-item" href="https://en.wikipedia.org/wiki/NIST_World_Trade_Center_Disaster_Investigation" target="_blank" data-cat="academique"><span class="si-item-title">Wikipedia — Synthèse complète de l'investigation NIST WTC (avec sources)</span><span class="si-item-meta">Encyclopédie · sources multiples</span><span class="si-item-url">wikipedia.org</span></a>
+
+    <!-- FACT-CHECK -->
+    <a class="si-item" href="https://leadstories.com/hoax-alert/2022/11/fact-check-kids-reading-words-on-9-11-is-not-proof-of-conspiracy.html" target="_blank" data-cat="factcheck"><span class="si-item-title">Lead Stories — Fact-check école Booker « Kite Hit Steel Plane Must » (2022)</span><span class="si-item-meta">Fact-check</span><span class="si-item-url">leadstories.com</span></a>
+    <a class="si-item" href="https://www.snopes.com/fact-check/building-7-collapse/" target="_blank" data-cat="factcheck"><span class="si-item-title">Snopes — WTC 7 : Silverstein a-t-il admis une démolition contrôlée ?</span><span class="si-item-meta">Fact-check</span><span class="si-item-url">snopes.com</span></a>
+    <a class="si-item" href="https://www.snopes.com/fact-check/israelis-absent-911/" target="_blank" data-cat="factcheck"><span class="si-item-title">Snopes — La rumeur des « 4 000 Juifs absents » du WTC le 11/09</span><span class="si-item-meta">Fact-check</span><span class="si-item-url">snopes.com</span></a>
+    <a class="si-item" href="https://www.snopes.com/list/10-911-conspiracies-that-still-persist-today/" target="_blank" data-cat="factcheck"><span class="si-item-title">Snopes — 10 théories du complot sur le 11/09 qui persistent encore</span><span class="si-item-meta">Fact-check · synthèse</span><span class="si-item-url">snopes.com</span></a>
+    <a class="si-item" href="https://skeptoid.com/episodes/4796" target="_blank" data-cat="factcheck"><span class="si-item-title">Skeptoid — 9/11 Truthers, 20 ans après (analyse des théories persistantes)</span><span class="si-item-meta">Fact-check · analyse cognitive</span><span class="si-item-url">skeptoid.com</span></a>
+    <a class="si-item" href="https://skeptoid.com/episodes/85" target="_blank" data-cat="factcheck"><span class="si-item-title">Skeptoid — WTC 7 : The Lies Come Crashing Down</span><span class="si-item-meta">Fact-check · WTC 7</span><span class="si-item-url">skeptoid.com</span></a>
+    <a class="si-item" href="https://skeptoid.com/episodes/354" target="_blank" data-cat="factcheck"><span class="si-item-title">Skeptoid — Le Pentagone et le missile : démontage de la théorie</span><span class="si-item-meta">Fact-check · Pentagone</span><span class="si-item-url">skeptoid.com</span></a>
+    <a class="si-item" href="https://skeptoid.com/episodes/22" target="_blank" data-cat="factcheck"><span class="si-item-title">Skeptoid — Vol 93 : le scepticisme sur l'abattage par l'armée</span><span class="si-item-meta">Fact-check · vol 93</span><span class="si-item-url">skeptoid.com</span></a>
+    <a class="si-item" href="https://www.factcheck.org/issue/911/" target="_blank" data-cat="factcheck"><span class="si-item-title">FactCheck.org — Toutes les vérifications liées au 11/09</span><span class="si-item-meta">Fact-check</span><span class="si-item-url">factcheck.org</span></a>
+    <a class="si-item" href="https://www.metabunk.org/threads/debunked-kids-saying-kite-hit-steel-plane-must-in-class-on-9-11.2626/" target="_blank" data-cat="factcheck"><span class="si-item-title">Metabunk — Débunking « Kite Hit Steel Plane Must » (analyse vidéo)</span><span class="si-item-meta">Fact-check technique</span><span class="si-item-url">metabunk.org</span></a>
+    <a class="si-item" href="https://www.cfr.org/blog/seven-resources-debunking-911-conspiracy-theories" target="_blank" data-cat="factcheck"><span class="si-item-title">Council on Foreign Relations — 7 ressources pour déconstruire les théories 11/09</span><span class="si-item-meta">Fact-check · géopolitique</span><span class="si-item-url">cfr.org</span></a>
+  </div>
+
+  <div class="page-nav" style="margin-top:4rem">
+    <a href="ecole.html">
+      <span class="nav-label">← Dernier argument</span>
+      <span class="nav-title">12 · L'école Booker</span>
+    </a>
+    <a href="index.html" class="next">
+      <span class="nav-label">Retour →</span>
+      <span class="nav-title">Page d'accueil</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>Dossier 11·09·2001 — Index des sources</p>
+    <p>Liens vérifiés un par un</p>
+    <p>Aucune position éditoriale · 2025</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop || document.body.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+function filterSources(cat) {
+  const items = document.querySelectorAll('.si-item');
+  let count = 0;
+  items.forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.style.display = show ? 'flex' : 'none';
+    if (show) count++;
+  });
+  document.getElementById('sourcesCount').textContent = count + ' source' + (count > 1 ? 's' : '') + ' affichée' + (count > 1 ? 's' : '');
+  document.querySelectorAll('.si-cat-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
