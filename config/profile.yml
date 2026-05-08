@@ -1,0 +1,58 @@
+# Career-Ops Profile Configuration
+
+candidate:
+  full_name: "Arthur Parois"
+  email: "arthur270.parois@gmail.com"
+  phone: "0622998663"
+  location: "Nantes, France"
+  linkedin: ""
+  portfolio_url: ""
+  github: ""
+
+target_roles:
+  primary:
+    - "Game Master"
+    - "Animateur Immersif"
+    - "Animateur Socio-Culturel"
+  archetypes:
+    - name: "Game Master / Animateur Immersif"
+      level: "Mid"
+      fit: "primary"
+    - name: "Animateur Socio-Culturel"
+      level: "Mid"
+      fit: "primary"
+    - name: "Coordinateur d'événements"
+      level: "Mid"
+      fit: "secondary"
+
+narrative:
+  headline: "Animateur immersif et improvisateur — Game Master, escape games & expériences participatives"
+  exit_story: "Formé en langues étrangères appliquées et en animation professionnelle (BPGEPS), je conçois et j'incarne des expériences immersives où les participants deviennent les héros de leur propre aventure."
+  superpowers:
+    - "Création et animation d'expériences immersives (escape games, JDR, soirées à thème)"
+    - "Gestion de groupes tous âges, accueil et relation client bienveillante"
+    - "Improvisation, rôle-play et adaptation en temps réel"
+    - "Production vidéo et contenu créatif (montage, Canva, Adobe)"
+  proof_points:
+    - name: "Vlipp Vidéo Nantes"
+      url: ""
+      hero_metric: "4 ans de production vidéo associative (2022-2026)"
+    - name: "Café Théâtre Nantes"
+      url: ""
+      hero_metric: "5 ans de pratique théâtrale associative (2021-2026)"
+
+compensation:
+  target_range: "À définir"
+  currency: "EUR"
+  minimum: "À définir"
+  location_flexibility: "Nantes et région, mobilité possible"
+
+location:
+  country: "France"
+  city: "Nantes"
+  timezone: "CET"
+  visa_status: "Citoyen français, aucun visa requis"
+
+cv:
+  output_format: "html"
+  canva_resume_design_id: "DAGqIFFEHbk"
